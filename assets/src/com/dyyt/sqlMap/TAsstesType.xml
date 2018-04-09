@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyyt.dao.TAssetsTypeDAO">
+	<!-- 查询资产类型 -->
+	<select id="queryAssetsTypePage" parameterType="com.dyyt.model.TAssetsType" resultType="com.dyyt.model.TAssetsType">
+		select * from t_assets_type where 1 = 1
+		<if test="type_name != ''">
+		   <![CDATA[and a.type_name like '%${type_name}%' ]]>
+		</if>
+		order by type_id desc
+	</select>
+	<select id="queryAssetsType" resultType="com.dyyt.model.TAssetsType">
+		select * from t_assets_type where 1 = 1
+		order by type_id desc
+	</select>
+	<!-- 新增资产类型 -->
+	<insert id="addAsstesType" parameterType="com.dyyt.model.TAssetsType">
+		insert into t_assets_type (type_name) values (#{type_name})
+	</insert>
+	<!-- 新增资产类型排重 -->
+	<select id="existTypeNameAdd" parameterType="com.dyyt.model.TAssetsType" resultType="int">
+		select count(1) from t_assets_type where type_name = #{type_name}
+	</select>
+	<!-- 通过ID获取资产类型 -->
+	<select id="getAssetsTypeBean" parameterType="String" resultType="com.dyyt.model.TAssetsType">
+		select * from t_assets_type where type_id = #{type_id}
+	</select>
+	<!-- 修改资产类型 -->
+	<update id="updateAsstesType" parameterType="com.dyyt.model.TAssetsType">
+		UPDATE t_assets_type set type_name = #{type_name} where type_id = #{type_id}
+	</update>
+	<!-- 修改资产类型排重 -->
+	<select id="existTypeNameUpdate" parameterType="com.dyyt.model.TAssetsType" resultType="int">
+		select count(1) from t_assets_type where type_name = #{type_name} and type_id != #{type_id}
+	</select>
+	<!-- 根据ID删除资产类型 -->
+	<delete id="deleteAssetsType" parameterType="String">
+		DELETE FROM t_assets_type WHERE type_id = #{type_id}
+	</delete>
+	<!-- 获取资产类型 -->
+	<select id="getAssetsType" resultType="com.dyyt.model.TAssetsType">
+		select * from t_assets_type 
+	</select>
+	<!-- 获取资产大类 -->
+	<select id="getAssetsParentType" resultType="com.dyyt.model.TAssetsParentType">
+		select * from t_assets_parent_type
+	</select>
+</mapper>

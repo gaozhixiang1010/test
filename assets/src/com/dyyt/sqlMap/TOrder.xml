@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyyt.dao.TOrderDAO">
+	<select id="queryOrderPage" parameterType="com.dyyt.model.TOrder" resultType="com.dyyt.model.TOrder">
+		SELECT a.assets_name,u.user_name,u.tel,o.order_id,o.num,o.create_date from t_order o,t_assets a,t_user u
+		where o.assets_id = a.assets_id
+   		and o.user_id = u.user_id
+	</select>
+	<delete id="deleteOrder" parameterType="String">
+		DELETE FROM t_order WHERE order_id = #{order_id}
+	</delete>
+	<insert id="addOrder" parameterType="com.dyyt.model.TOrder">
+		insert into t_order (assets_id,user_id,num,create_date) values (#{assets_id},#{user_id},1,now())
+	</insert>
+	<select id="myOrders" parameterType="String" resultType="com.dyyt.model.TOrder">
+		select o.*,u.user_name,u.tel,a.assets_name from t_order o,t_user u,t_assets a where o.user_id=u.user_id and o.assets_id=a.assets_id and o.user_id = #{user_id}
+	</select>
+</mapper>

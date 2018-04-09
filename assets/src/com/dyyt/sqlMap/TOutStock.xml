@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyyt.dao.TOutStockDAO">
+	<!-- 根据条件查询固定资产出库信息 -->
+	<select id="queryOutStockPage" parameterType="com.dyyt.model.TOutStock" resultType="com.dyyt.model.TOutStock">
+		select a.outstock_id,a.assets_type_id,a.assets_num,a.out_time,IF(LENGTH(a.outstock_desc)>36,concat(left(a.outstock_desc, 12),'..'),a.outstock_desc) outstock_desc,
+		a.create_time,a.assets_owner,IF(a.assets_owner=1,'市场推广部',IF(a.assets_owner=2,'财务部',IF(a.assets_owner=3,'人力行政部',IF(a.assets_owner=4,'营销部',IF(a.assets_owner=5,'办公室',IF(a.assets_owner=6,'运营中心',IF(a.assets_owner=7,'商务中心',IF(a.assets_owner=8,'客服部',IF(a.assets_owner=9,'工程部',IF(a.assets_owner=10,'孵化器',IF(a.assets_owner=11,'公开面积','咖啡厅'))))))))))) assets_owner_name,a.department,a.charge,t.type_name assets_type_name,t.parent_id,p.parent_name
+		from t_outstock a,t_assets_type t,t_assets_parent_type p
+		where a.assets_type_id = t.type_id and t.parent_id = p.parent_id and t.parent_id = 1
+		<if test="assets_type_id != ''">
+		   <![CDATA[and a.assets_type_id = ${assets_type_id} ]]>
+		</if>
+		<if test="assets_owner != ''">
+		   <![CDATA[and a.assets_owner = ${assets_owner} ]]>
+		</if>
+		<if test="begin_time != ''">
+		<![CDATA[and DATE(a.out_time) >= '${begin_time}' ]]>
+		</if>
+		<if test="end_time != ''">
+		<![CDATA[and DATE(a.out_time) <= '${end_time}' ]]>
+		</if>
+		order by a.outstock_id desc
+	</select>
+	<!-- 根据条件获取库存信息 -->
+	<select id="getStockInformation" parameterType="com.dyyt.model.TOutStock" resultType="com.dyyt.model.TStock">
+		select in_stock.assets_num total_num,(in_stock.assets_num - out_stock.out_num) over_num,p.parent_name,in_stock.type_name assets_type_name,in_stock.assets_owner assets_owner,IF(in_stock.assets_owner=1,'集团','咖啡厅') assets_owner_name,in_stock.parent_id parent_id,in_stock.assets_type_id assets_type_id from 
+		(select t.parent_id,a.assets_type_id,t.type_name,SUM(a.assets_num) assets_num,a.assets_owner from t_assets a,t_assets_type t where a.assets_type_id = t.type_id and a.assets_owner = #{assets_owner} GROUP BY assets_type_id) in_stock,
+		(select t.parent_id,t.type_id,t.type_name,IFNULL(SUM(a.assets_num),0) out_num,a.assets_owner from t_assets_type t LEFT JOIN t_outstock a on t.type_id = a.assets_type_id and a.assets_owner = #{assets_owner} GROUP BY t.type_id,a.assets_owner) out_stock,
+		t_assets_parent_type p
+		 where in_stock.assets_type_id = out_stock.type_id
+		   and p.parent_id = in_stock.parent_id
+		   <if test="assets_type_id != ''">
+		      <![CDATA[and in_stock.assets_type_id = ${assets_type_id} ]]>
+		   </if>
+	</select>
+	<!-- 新增出库信息 -->
+	<insert id="addOutStock" parameterType="com.dyyt.model.TOutStock">
+		INSERT INTO t_outstock (assets_type_id,assets_num,assets_owner,out_time,department,charge,outstock_desc,create_time,user_id)
+		values (#{assets_type_id},#{assets_num},#{assets_owner},#{out_time},#{department},#{charge},#{outstock_desc},now(),#{user_id})
+	</insert>
+	<!-- 通过ID获取出库信息 -->
+	<select id="getOutStockBean" parameterType="String" resultType="com.dyyt.model.TOutStock">
+		select * from t_outstock where outstock_id = #{outstock_id}
+	</select>
+	<!-- 修改出库信息 -->
+	<update id="updateOutStock" parameterType="com.dyyt.model.TOutStock">
+		update t_outstock set assets_type_id=#{assets_type_id},assets_num=#{assets_num},assets_owner=#{assets_owner},out_time=#{out_time},department=#{department},charge=#{charge},outstock_desc=#{outstock_desc},user_id=#{user_id} where outstock_id=#{outstock_id}
+	</update>
+	<!-- 根据ID删除出库信息 -->
+	<delete id="deleteOutStock" parameterType="String">
+		DELETE FROM t_outstock WHERE outstock_id = #{outstock_id}
+	</delete>
+</mapper>

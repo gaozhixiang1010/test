@@ -1,0 +1,2576 @@
+/* Common css rules for metro-ui-light & metro-ui-dark */
+
+
+/* Body & Footer & headers
+-------------------------------------------------- */
+html {
+   background-color: #FFF;
+}
+/*
+body {
+   padding-top: 24px;
+   padding-bottom: 88px;
+   position: relative;
+   font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+   font-weight: 300;
+   font-size: 11px;
+}
+*/
+
+.clearfix:after {
+   content: ".";
+   display: block;
+   clear: both;
+   visibility: hidden;
+   line-height: 0;
+   height: 0;
+}
+.clearfix {
+   display: inline-block;
+   zoom: 1;
+}
+html[xmlns] .clearfix {
+   display: block;
+}
+* html .clearfix {
+   height: 1%;
+}
+
+
+
+.container-fluid {
+   padding-left: 40px;
+   padding-right: 40px;
+}
+
+.row-fluid .hide {
+    display: none;
+}
+
+/* General alignment styles
+-------------------------------------------------- */
+.align-right {text-align: right}
+.align-left {text-align: left}
+.align-center {text-align: center}
+
+td.align-right {text-align: right}
+td.align-left {text-align: left}
+td.align-center {text-align: center}
+
+.block { display: block;}
+
+/* Weight and size definitions for typographic classes and elements.
+-------------------------------------------------- */
+h1 {
+   font-weight: 300;
+   font-size: 40px;
+   line-height: 48px;
+}
+h2 {
+   font-weight: 300;
+   font-size: 26px;
+   line-height: 34px;
+}
+h3, .win-type-large {
+   font-weight: 600;
+   font-size: 20px;
+   line-height: 26px;
+}
+h4 /*, code, pre, samp*/ {
+   font-weight: 400;
+   font-size: 15px;
+   line-height: 20px;
+}
+body, h5, legend {
+   font-weight: 300;
+   font-size: 13px;
+   line-height: 20px;
+}
+h6, caption, figcaption, small {
+   font-weight: 400;
+   font-size: 11px;
+   line-height: 11px;
+}
+h1, h2, h3, h4, h5, h6 {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+/* This is the header H2 with a dropdown for the page menu */
+#header-container a.header-dropdown {
+   font-size: 26px;
+   font-weight: 200;
+   line-height: 34px;
+   text-decoration: none;
+}
+   #header-container .dropdown-menu .divider {
+      background-color: #717171;
+   }
+   #header-container .dropdown.open .dropdown-toggle {
+       background: inherit;
+       color: inherit;
+   }
+#header-container h5 {font-size: 14px;}
+
+dt, th {
+   font-size: 15px;
+   font-weight: 700;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+
+abbr, acronym, address, blockquote, cite, dl, dd, li, ol, p, q, td, tr {
+   font-weight: 300;
+}
+
+b, strong {
+   font-weight: 700;
+}
+
+em {
+   font-style: italic;
+}
+
+p {
+   font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+   font-weight: 300;
+}
+
+
+
+/* Additional letter-spacing for the document and its controls.
+-------------------------------------------------- */
+
+body,
+button, input,
+textarea, .win-textarea,
+select, option {
+   letter-spacing: 0.02em;
+}
+
+a.win-command,
+input, button, select, textarea {
+   font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+   font-weight: 300;
+   /*font-size: 11px;*/
+   height: 28px;
+   line-height: 30px;
+
+   -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box;
+}
+textarea { height: auto;}
+
+/*
+Text input controls.
+*/
+textarea, .win-textarea {
+   width: 260px;
+   /*height: 39px;*/
+   padding: 4px 8px;
+   overflow-y: scroll;
+   word-wrap: break-word;
+   /* Leave space for autohiding scrollbar on elements that enable text selection. */
+   padding-right: 17px;
+}
+textarea {
+   min-width: 260px;
+   min-height: 39px;
+}
+.win-textarea {
+   width: 260px;
+   height: 39px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number],
+input[type=tel], input[type=url], input[type=search], textarea, .win-textarea {
+   /*width: 276px;*/
+   min-height: 28px;
+   min-width: 64px;
+   /*margin: 0;*/
+   /*padding: 0 0 0 4px;*/
+   border-width: 2px;
+   border-style: solid;
+   background-clip: padding-box;
+   /*font-size: 11pt;*/
+   font-weight: 400;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+
+.search-query {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+.input-prepend .add-on, .input-append .add-on {
+   height: 16px;
+   line-height: 15px;
+}
+.input-prepend .add-on:first-child,
+.input-prepend .btn:first-child {
+   border-style: solid;
+   border-width: 2px;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+.input-append .add-on:last-child,
+.input-append .btn:last-child {
+   border-style: solid;
+   border-width: 2px;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+.input-append .btn {
+   height: 28px;
+   min-height: 28px;
+}
+
+
+/*
+Button control.
+*/
+a.win-command, button, input[type=button], input[type=reset], input[type=submit] {
+   min-width: 90px;
+   padding: 4px 8px;
+   margin-bottom: 0;
+   border-width: 2px;
+   border-style: solid;
+   background-clip: padding-box;
+   /*font-size: 11pt;*/
+   font-weight: 600;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+a.win-command {
+   min-height: 32px; /* content (20px) + padding + border */
+}
+
+
+/*
+File upload control.
+*/
+input[type=file] {
+   /*border: none;*/
+   min-width: 100px;
+   min-height: 20px;
+   width: 340px;
+   height: 32px;
+   padding: 0;
+   margin: 7px 8px 21px 8px;
+   background-clip: padding-box;
+}
+input[type=file]::-ms-value {
+   margin: 0;
+   border-width: 2px;
+   border-style: solid;
+   border-right-style: none;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   background-clip: padding-box;
+   /*font-size: 11pt;*/
+   font-weight: 400;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+input[type=file]::-ms-browse {
+   margin: 0;
+   padding: 0 18px;
+   border-width: 2px;
+   border-style: solid;
+   background-clip: padding-box;
+   /*font-size: 11pt;*/
+   font-weight: 600;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+
+/*
+No underline or special cursor on links.
+*/
+a {
+   text-decoration: none;
+   /*cursor: default;*/
+}
+
+/*
+No border on images when in a link.
+*/
+img {
+   border-style: none;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+/*
+Select control.
+*/
+select {
+   padding: 2px;
+   min-height: 24px;
+   min-width: 80px;
+   border-width: 2px;
+   border-style: solid;
+   background-clip: padding-box;
+   /*margin: 4px 0;*/
+   /*font-size: 11pt;*/
+   /*font-weight: 400;*/
+   /*line-height: 1.3636; *//* 20px when font-size is 11pt */
+}
+
+/*
+Search input
+*/
+input.search-query {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+/*
+Range control.
+*/
+input[type=range] {
+   width: 280px;
+   height: auto;
+   padding: 17px 0 32px 0;
+}
+
+/*
+Vertical range control.
+*/
+input[type=range].win-vertical {
+   width: auto;
+   height: 191px;
+   padding: 0 17px;
+   writing-mode: bt-lr;
+}
+
+/*
+Progress control. */
+.progress {
+   /*height: auto;*/
+   background-image: none;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+}
+   .progress.progress-indeterminate {
+      background-color: transparent;
+   }
+
+.progress.progress-indeterminate .bar {
+         display: block;
+         position: static;
+         width: 188px;
+         height: 11px;
+         margin: 4px auto;
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+         background: transparent url("../img/progress-indeterminate-light.gif") no-repeat 0 0;
+         -webkit-box-shadow: none;
+         -moz-box-shadow: none;
+         box-shadow: none;
+      }
+      .win-ui-dark.progress.progress-indeterminate .bar {
+         width: 191px;
+         height: 7px;
+         margin: 9px auto;
+         background: transparent url("../img/progress-indeterminate-dark.gif") no-repeat 0 0;
+      }
+
+      .progress.progress-indeterminate .win-ring.small {
+         display: inline-block;
+         width: 23px;
+         height: 27px;
+         margin: 4px 10px 5px;
+         background: transparent url("../img/progress-indeterminate-ring-light-small.gif") no-repeat 0 0;
+      }
+      .win-ui-dark.progress.progress-indeterminate .win-ring.small {
+         width: 24px;
+         height: 23px;
+         margin: 8px 10px 5px;
+         background: transparent url("../img/progress-indeterminate-ring-dark-small.gif") no-repeat 0 0;
+      }
+
+
+.progress-danger .bar,
+.progress .bar-danger,
+.progress-danger.progress-striped .bar,
+.progress-striped .bar-danger,
+.progress-success .bar,
+.progress .bar-success,
+.progress-success.progress-striped .bar,
+.progress-striped .bar-success,
+.progress-info .bar,
+.progress .bar-info,
+.progress-info.progress-striped .bar,
+.progress-striped .bar-info,
+.progress-warning .bar,
+.progress .bar-warning,
+.progress-warning.progress-striped .bar,
+.progress-striped .bar-warning {
+   background-image: none;
+   filter: none;
+}
+.progress .bar + .bar {
+   -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+           box-shadow: none;
+}
+
+
+
+
+
+
+/*
+AppBar/Flyout z-index values:
+    1000 - AppBar/settings click-eating div
+    1001 - AppBar
+    1002 - Flyout click-eating div
+    1003 - Flyout
+*/
+.win-appbarclickeater {
+   z-index: 1000;
+   opacity: 0;
+   background-color: Purple;
+   display: none;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   position: fixed;
+}
+.win-flyoutmenuclickeater {
+   z-index: 1002;
+   opacity: 0;
+   background-color: Lime;
+   display: none;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   position: fixed;
+}
+
+
+
+/*
+Back button.
+*/
+.win-backbutton {
+   position: absolute;
+   left: 10px;
+   top: 8px;
+   display: inline-block;
+   min-width: 0;
+   min-height: 0;
+   background-clip: border-box;
+   box-sizing: border-box;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   border-width: 2px;
+   border-style: solid;
+   padding: 0;
+   text-align: center;
+
+   /* Normal sizing. */
+   width: 38px;
+   height: 38px;
+   font-size: 20px;
+   line-height: 38px; /* line-height must match the content box height. */
+   vertical-align: baseline;
+}
+.win-backbutton::before {
+   font-weight: normal;
+	font-family: 'IcoMoon';
+   content: "\e05d";
+   vertical-align: 24%;
+}
+.win-backbutton:disabled, .win-backbutton:disabled:active {
+   background-clip: padding-box;
+   visibility: hidden;
+}
+
+
+
+/*
+Command buttons.
+*/
+a.win-command {
+   display: inline-block;
+   cursor: pointer;
+   letter-spacing: 0.02em;
+   vertical-align: middle;
+}
+a.win-command,
+button.win-command {
+   background: none;
+   background-clip: border-box;
+   height: auto; /* height is 88px (label) or 68px (no label) */
+   padding: 12px 0; /* bottom dependent on label/img, 2px margin */
+   margin: 0 5px;
+   border: 0;
+   min-width: 55px;
+   text-align: center;
+   font-size: 9pt;
+   font-weight: normal;
+   line-height: 16px;
+}
+
+a.win-hidefocus:focus,
+button.win-hidefocus:focus {
+   outline: none;
+}
+
+
+
+/*
+Command button icons.
+*/
+.win-commandicon {
+   display: inline-block;
+   margin: 0 28px; /* padding for command buttons, 2px/side for focus */
+   min-width: 0;
+   min-height: 0;
+   padding: 0;
+
+   /* Normal sizing */
+   width: 40px;
+   height: 40px;
+   box-sizing: border-box;
+   cursor: default;
+}
+.win-commandimage {
+   font-family: "IcoMoon";
+   letter-spacing: 0;
+
+   /* Applications provide their own content, like &#xE0D5;. */
+   vertical-align: middle;
+   font-size: 14pt;
+   margin: -2px;
+   line-height: 40px; /* line-height must match the content box height */
+   background-position: 0 0;
+   /*background-origin: border-box;*/
+   display: inline-block;
+   /* Still 40px */
+   width: 40px;
+   height: 40px;
+   background-size: 160px 80px;
+}
+
+/*
+Offsets for sprite versions.
+a:hover .win-commandimage, a:active .win-commandimage,
+button:hover .win-commandimage, button:active .win-commandimage {
+   background-position: -40px 0;
+}
+a:hover:active .win-commandimage,
+button:hover:active .win-commandimage {
+   background-position: -80px 0;
+}
+a:disabled .win-commandimage,
+a:disabled:active .win-commandimage,
+button:disabled .win-commandimage,
+button:disabled:active .win-commandimage {
+   background-position: -120px 0;
+}
+*/
+
+/*
+Offsets for sprite versions in selected state.
+a[aria-checked=true] .win-commandimage,
+button[aria-checked=true] .win-commandimage {
+   background-position: 0 -40px;
+}
+
+a[aria-checked=true]:hover .win-commandimage,
+a[aria-checked=true]:active .win-commandimage,
+button[aria-checked=true]:hover .win-commandimage,
+button[aria-checked=true]:active .win-commandimage {
+   background-position: -40px -40px;
+}
+
+a[aria-checked=true]:hover:active .win-commandimage,
+button[aria-checked=true]:hover:active .win-commandimage {
+   background-position: -80px -40px;
+}
+
+a[aria-checked=true]:disabled .win-commandimage,
+a[aria-checked=true]:disabled:active .win-commandimage,
+button[aria-checked=true]:disabled .win-commandimage,
+button[aria-checked=true]:disabled:active .win-commandimage {
+   background-position: -120px -40px;
+}
+*/
+
+/*
+Command button "ring".
+*/
+.win-commandring,
+a:hover .win-commandring,
+a:active .win-commandring,
+a.win-command:disabled .win-commandring,
+a.win-command:disabled:active .win-commandring,
+button:hover .win-commandring,
+button:active .win-commandring,
+button.win-command:disabled .win-commandring,
+button.win-command:disabled:active .win-commandring {
+   border-width: 2px;
+   border-style: solid;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+   background-clip: border-box;
+}
+
+a:hover:active .win-commandring,
+a[aria-checked=true] .win-commandring,
+a[aria-checked=true]:active .win-commandring,
+a[aria-checked=true]:disabled .win-commandring,
+a[aria-checked=true]:disabled:active .win-commandring,
+button:hover:active .win-commandring,
+button[aria-checked=true] .win-commandring,
+button[aria-checked=true]:active .win-commandring,
+button[aria-checked=true]:disabled .win-commandring,
+button[aria-checked=true]:disabled:active .win-commandring {
+   background-clip: border-box;
+}
+
+/*
+Command button labels.
+*/
+a.win-command .win-label,
+button.win-command .win-label {
+   position: relative;
+   line-height: 20px;
+   display: block;
+   max-width: 88px; /* 100px button, but allow for 2px margins and 4px padding on each side */
+   padding-left: 4px;  /* 12px between buttons, 6px per side, minus 2px margins */
+   padding-right: 4px;
+   overflow: hidden;
+   word-wrap: break-word;
+   word-break: keep-all;
+   top: 1px;
+}
+a.win-command,
+a.win-command:hover {
+   text-decoration: none
+}
+
+/*
+AppBarCommand separator.
+*/
+hr.win-command {
+   display: inline-block;
+   padding: 0;
+   margin: 14px 29px 34px 30px;
+   width: 1px;
+   height: 40px;
+   border: 0;
+   vertical-align: top;
+}
+
+/*
+AppBar Edgy Container
+*/
+.win-appbar {
+   z-index: 1001;
+   border-width: 0;
+   width: 100%;
+   height: auto;
+   left: 0;
+   position: fixed;
+}
+
+/*
+AppBar control.
+*/
+.win-commandlayout {
+   /*text-align: right;*/
+   padding-left: 10px;
+   /*padding-right: calc(((100% + 5px) mod 20px) + 5px);*/
+   /*width: calc(100% - 10px - (((100% + 5px) mod 20px) + 5px));*/
+
+   /* Hide whitespace between buttons. */
+   font-size: 0;
+
+   min-height: 88px;
+}
+.win-commandlayout .win-selection {
+   float: left;
+}
+
+
+/* Narrow buttons and no labels when < 1024px. */
+@media (max-width: 1023px) {
+   a.win-command .win-label,
+   button.win-command .win-label {
+      display: none;
+   }
+   a.win-command .win-commandicon,
+   button.win-command .win-commandicon {
+      margin: 0 8px; /* 2px margin for focus */
+   }
+   .win-commandlayout {
+      min-height: 68px;
+   }
+   hr.win-command {
+      margin-bottom: 14px;
+      margin-top: 14px;
+   }
+}
+
+@media (min-width: 321px) and (max-width: 1023px) {
+   hr.win-command {
+      margin-left: 10px;
+      margin-right: 9px;
+   }
+}
+
+
+
+/*
+Flyout control.
+*/
+.win-flyout {
+   z-index: 1003;
+   position: fixed;
+   padding: 25px 20px 20px 20px;
+   border-style: solid;
+   border-width: 2px;
+   margin: 5px;
+   min-width: 26px; /* 70px - padding - border = 26px */
+   max-width: 466px; /* 510px - padding - border = 466px */
+   min-height: 5px; /* 54px - padding - border = 5px */
+   /*max-height: calc(100% - 59px); *//* 768px - margin - padding - border = 709px */
+   width: auto;
+   height: auto;
+   word-wrap: break-word;
+   overflow: auto;
+   font-size: 11pt;
+   font-weight: 400;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+.win-flyout.win-leftalign {
+   margin-left: 0;
+}
+.win-flyout.win-rightalign {
+   margin-right: 0;
+}
+.win-flyout.win-scrolls {
+   overflow: auto;
+}
+
+
+
+/*
+Menu control.
+*/
+.win-menu {
+   padding: 5px 0 7px 0;
+   line-height: 33px;
+   text-align: left; /* Set explicitly in case our parent has different alignment, like appbar overflow. */
+   min-height: 38px; /* 54px - padding - border = 38px */
+   /*max-height: calc(100% - 26px); *//* 768px - margin - padding - border = 742px */
+   max-width: none;
+}
+
+/*
+Menu commands.
+*/
+.win-menu button.win-command {
+   display: block;
+   border: none;
+   padding: 0 20px;
+   margin-left: 0;
+   margin-right: 0;
+   float: none;
+   text-align: left;
+   font-size: 11pt;
+   width: 100%;
+   font-weight: 600;
+   line-height: 33px;
+}
+.win-menu button.win-command:focus {
+   outline: none;
+}
+.win-menu hr.win-command {
+   display: block;
+   height: 1px;
+   width: auto;
+   border: 0;
+   padding: 0;
+   margin: 11px 16px 8px 16px;
+}
+
+/*
+Menu toggle buttons.
+*/
+.win-menu-toggle button.win-command::before {
+	font-family: 'IcoMoon';
+	content: "\e20c";
+   visibility: hidden;
+   letter-spacing: 0;
+}
+.win-menu-toggle button[aria-selected=true].win-command::before {
+   /* Display a checkbox if aria-selected is set */
+   visibility: visible;
+}
+
+
+
+/*
+Settings Pane
+*/
+.win-settingsflyout {
+   z-index: 1001;  /* Same as appbar so flyouts can show above it */
+   border-left: 1px solid;
+   position: fixed;
+   top: 0;
+   right: 0;
+   height: 100%;
+   width: 345px; /* 346px - border (1px) */
+   -ms-touch-select: none;
+}
+.win-settingsflyout.win-wide {
+   width: 645px; /* 646px - border (1px) */
+}
+.win-settingsflyout .win-header {
+   padding-left: 40px;
+   padding-right: 40px;
+   padding-top: 32px;
+   height: 48px;
+}
+/* Settings back button is slightly smaller. */
+.win-settingsflyout .win-backbutton {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   font-size: 8pt;
+   line-height: 26px;
+   margin-top: 3px;
+}
+.win-settingsflyout .win-header .win-label {
+   display: inline-block;
+   padding-left: 40px;
+   font-size: 20pt;
+   line-height: 33px;
+}
+.win-settingsflyout .win-content {
+   overflow: auto;
+   padding-left: 40px;
+   padding-right: 40px;
+   padding-top: 33px;
+   /*height: calc(100% - 112px);*/
+}
+.win-settingsflyout .win-label {
+   font-size: 20pt;
+   font-weight: 200;
+   line-height: normal;
+}
+
+.win-settingsflyout .win-content .win-settings-section {
+   padding-top: 0;
+   padding-bottom: 39px;
+}
+
+.win-settingsflyout .win-content .win-settings-section p {
+   margin: 0;
+   padding-top: 0;
+   padding-bottom: 25px;
+}
+
+.win-settingsflyout .win-content .win-settings-section a {
+   margin: 0;
+   padding-top: 0;
+   padding-bottom: 25px;
+   display:inline-block;
+}
+
+.win-settingsflyout .win-content .win-settings-section .win-toggleswitch  {
+   margin: 0;
+   padding-top: 0;
+   padding-bottom: 20px;
+}
+
+.win-settingsflyout .win-content .win-settings-section label {
+   display:block;
+   padding-bottom: 7px;
+}
+
+.win-settingsflyout .win-content .win-settings-section button,
+.win-settingsflyout .win-content .win-settings-section select,
+.win-settingsflyout .win-content .win-settings-section input[type=button],
+.win-settingsflyout .win-content .win-settings-section input[type=text] {
+   margin-bottom: 25px;
+   margin-left: 0;
+   margin-right:  20px;
+}
+
+.win-settingsflyout .win-content .win-settings-section input[type=radio] {
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-bottom: 15px;
+}
+
+
+/*
+Common AppBar/Flyout/SettingsFlyout styles
+
+.win-flyout input[type=text],
+.win-settingsflyout input[type=text],
+.win-appbar input[type=text] {
+   -ms-touch-select: grippers;
+}
+*/
+
+
+
+/*
+Rating control.
+*/
+/*.win-rating {
+    display: -ms-inline-flexbox;
+    height: auto;
+    width: auto;
+    white-space: normal;
+    -ms-flex-align: stretch;
+    -ms-flex-pack: center;
+    -ms-touch-action: none;
+}
+
+.win-rating .win-star {
+    -ms-flex: 1 1 auto;
+    height:28px;
+    width: 28px;
+    padding: 0 6px;
+    font-family: "Segoe UI Symbol";
+    font-size: 28px;
+    overflow: hidden;
+    text-indent: 0;
+    line-height: 1;
+    cursor: default;
+    position: relative;
+   letter-spacing: 0;
+}
+.win-rating.win-small .win-star {
+   width: 14px;
+   height: 14px;
+   font-size: 14px;
+   padding: 0 3px;
+}
+.win-rating .win-star:before {
+   content: "\E082";
+}
+.win-rating .win-star.win-disabled {
+   cursor: default;
+}
+*/
+
+
+/*
+DatePicker control.
+.win-datepicker {
+    display: -ms-inline-flexbox;
+   height: auto;
+   width: auto;
+}
+.win-datepicker .win-datepicker-month {
+   margin-right: 20px;
+}
+.win-datepicker .win-datepicker-date.win-order0,
+.win-datepicker .win-datepicker-date.win-order1 {
+   margin-right: 20px;
+}
+.win-datepicker .win-datepicker-year.win-order0 {
+   margin-right: 20px;
+}
+*/
+
+/*
+TimePicker control.
+.win-timepicker {
+    display: -ms-inline-flexbox;
+   height: auto;
+   width: auto;
+}
+.win-timepicker select {
+   padding-left: 2px;
+}
+.win-timepicker .win-timepicker-hour {
+   margin-right: 20px;
+}
+.win-timepicker .win-timepicker-period.win-order0 {
+   margin-right: 20px;
+}
+.win-timepicker .win-timepicker-minute.win-order1 {
+   margin-right: 20px;
+}
+*/
+
+/*
+Toggle control.
+*/
+.win-toggleswitch {
+   padding: 0;
+   background-color: transparent;
+   vertical-align: top;
+   margin: 0;
+   display: block;
+}
+.win-toggleswitch .win-switch {
+   display: inline-block;
+   height: 19px;
+   width: 50px;
+   padding: 5px;
+   margin: 0;
+   background-color: transparent;
+}
+
+.win-toggleswitch .win-title {
+   display: block;
+   vertical-align: top;
+   max-width:470px;
+   font-size: 11pt;
+   font-weight: 300;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+.win-toggleswitch .win-label {
+   display: inline-block;
+   vertical-align: top;
+   padding: 5px 20px 5px 0px;
+   min-width:65px;
+   direction: inherit;
+   font-size: 11pt;
+   font-weight: 600;
+   line-height: 1.3636; /* 20px when font-size is 11pt */
+}
+
+/*
+Tooltip & PopOver control.
+*/
+.tooltip-inner {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+.win-tooltip {
+   display: block;
+   position: fixed;
+   top: 30px;
+   left: 30px;
+   max-width: 30em;
+   margin: 0;
+   padding: 6px 10px 7px 10px;
+   border-style: solid;
+   border-width: 2px;
+   z-index: 9999;
+   word-wrap: break-word;
+   font-size: 9pt;
+   font-weight: 400;
+   line-height: 1.6667; /* 20px when font-size is 9pt */
+}
+.win-tooltip-phantom {
+   display: block;
+   position: fixed;
+   top: 30px;
+   left: 30px;
+   background-color: transparent;
+   border-width: 0;
+   margin: 0;
+   padding: 0;
+}
+
+.win-viewbox {
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+
+.win-semanticzoom {
+   height: 400px;
+   -ms-touch-action: pan-x pan-y double-tap-zoom;
+}
+.win-semanticzoom * {
+   -ms-touch-action: inherit;
+}
+
+.win-semanticzoom-button {
+   z-index:  100;
+   position: absolute;
+   min-width: 25px;
+   min-height: 25px;
+   width: 25px;
+   height: 25px;
+   padding: 0px;
+   bottom: 21px;
+   -ms-touch-action: none;
+}
+
+.win-semanticzoom-button::before {
+   font-family: "Segoe UI Symbol";
+   font-weight: normal;
+   font-size: 11pt;
+   content: "\E0B8"; /* minus sign */
+}
+
+.win-semanticzoom-button-location.rtl {
+   left: 4px;
+}
+
+.win-semanticzoom-button-location.ltr{
+   right: 4px;
+}
+
+/*
+ScrollView control.
+*/
+.win-scrollview {
+   overflow-x: auto;
+   overflow-y: hidden;
+   height: 400px;
+   width: 100%;
+}
+
+/*
+ListView control.
+*/
+.win-listview {
+   overflow: hidden;
+   height: 400px;
+}
+.win-listview .win-surface {
+   position: relative;
+   overflow: visible;
+   width: 100%;
+   height: 100%;
+}
+.win-listview > .win-viewport {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   z-index: 0;
+}
+.win-listview > .win-viewport.win-horizontal {
+   overflow-x: auto;
+   overflow-y: hidden;
+}
+.win-listview > .win-viewport.win-vertical {
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+.win-listview > .win-horizontal .win-container {
+   margin: 5px;
+}
+.win-listview > .win-vertical .win-container {
+   margin: 5px 24px 5px 7px;
+}
+.win-listview.win-rtl > .win-vertical .win-container {
+   margin: 5px 7px 5px 24px;
+}
+.win-listview .win-container {
+   cursor: default;
+   position: absolute;
+   z-index: 0;
+}
+.win-swipeable .win-container {
+   z-index: 1;
+}
+.win-interactive {
+   -ms-touch-action: auto;
+}
+.win-listview .win-item {
+   /* Used to place above .win-selectionbackground in ListView */
+   z-index: 1;
+}
+.win-listview .win-item {
+   overflow: hidden;
+   position: absolute;
+}
+.win-listview > .win-vertical .win-item
+{
+   /* Allow flex box to fill win-item in list layout */
+   width: 100%;
+}
+.win-listview .win-item:focus {
+   outline-style: none;
+}
+.win-listview .win-focusedoutline {
+   /*width: calc(100% + 4px);*/
+   /*height: calc(100% + 4px);*/
+   left: -2px;
+   top: -2px;
+   position: absolute;
+   z-index: 5;
+}
+
+.win-container.win-selected .win-selectionborder {
+   border-width: 4px;
+   border-style: solid;
+}
+.win-container.win-selected:hover .win-selectionborder {
+   border-width: 4px;
+   border-style: solid;
+}
+.win-listview .win-groupheader {
+   position: absolute;
+   top: 0;
+   padding: 10px 10px 10px 2px;
+   cursor: default;
+   overflow: hidden;
+   margin-left: 70px;
+   font-size: 20pt;
+   font-weight: 200;
+   line-height: 1.2; /* 32px when font-size is 20pt */
+}
+.win-listview.win-rtl .win-groupheader {
+   margin-left: 0;
+   margin-right: 70px;
+   padding-left: 10px;
+   padding-right: 2px;
+}
+.win-listview.win-groups > .win-horizontal .win-surface {
+   margin-left: -70px;
+}
+.win-listview.win-groups.win-rtl > .win-horizontal .win-surface {
+   margin-left: 0;
+   margin-right: -70px;
+}
+.win-surface ._win-proxy {
+   position: absolute;
+   width: 0;
+   height: 0;
+   -ms-touch-action: none;
+}
+.win-selectionborder {
+   position: absolute;
+   opacity: inherit;
+   z-index: 2;
+}
+.win-container.win-selected .win-selectionbordertop {
+   top: 0;
+   left: 0;
+   right: 0;
+   height: 0;
+   border-right-style: hidden !important;
+   border-bottom-style: hidden !important;
+   border-left-style: hidden !important;
+}
+.win-container.win-selected .win-selectionborderright {
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 0;
+   border-top-style: hidden !important;
+   border-bottom-style: hidden !important;
+   border-left-style: hidden !important;
+}
+.win-container.win-selected .win-selectionborderbottom {
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 0;
+   border-top-style: hidden !important;
+   border-right-style: hidden !important;
+   border-left-style: hidden !important;
+}
+.win-container.win-selected .win-selectionborderleft {
+   top: 0;
+   left: 0;
+   bottom: 0;
+   width: 0;
+   border-top-style: hidden !important;
+   border-right-style: hidden !important;
+   border-bottom-style: hidden !important;
+}
+.win-selectionbackground {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   /* Used to place behind .win-item in the ListView */
+   z-index: 0;
+}
+.win-selectioncheckmarkbackground {
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 0;
+   height: 0;
+   margin: 0;
+   padding: 0;
+   border-width: 20px;
+   border-style: solid;
+   z-index: 3;
+}
+.win-rtl .win-selectioncheckmarkbackground {
+   left: 0;
+   right: auto;
+}
+.win-selectioncheckmark {
+   position: absolute;
+   margin: 0;
+   padding: 2px;
+   right: 0;
+   top: 0;
+   font-family: Segoe UI Symbol;
+   font-size: 11pt;
+   z-index: 4;
+}
+.win-rtl .win-selectioncheckmark {
+   left: 0;
+   right: auto;
+}
+.win-selectionhint {
+   position: absolute;
+   margin: 0;
+   padding: 2px;
+   right: 0;
+   font-family: Segoe UI Symbol;
+   font-size: 11pt;
+   opacity: 0.5;
+}
+.win-selectionhint.win-revealed {
+   opacity: 1;
+}
+.win-rtl .win-selectionhint {
+   left: 0;
+   right: auto;
+}
+.win-listview .win-progress {
+   left: 50%;
+   top: 50%;
+   width: 60px;
+   height: 60px;
+   margin-left: -30px;
+   margin-top: -30px;
+   z-index: 1;
+   position: absolute;
+}
+.win-listview .win-progress::-ms-fill {
+   -ms-animation-name: -ms-ring;
+}
+
+/*
+FlipView control.
+.win-flipview {
+    overflow: hidden;
+    height: 400px;
+}
+
+.win-flipview .win-surface {
+    -ms-scroll-chaining: none;
+}
+.win-flipview .win-navright {
+   left: 100%;
+   top: 50%;
+   margin-left: -69px;
+   margin-top: -19px;
+}
+.win-flipview .win-navtop {
+   left: 50%;
+   top: 0%;
+   margin-left: -35px;
+}
+.win-flipview .win-navbottom {
+   left: 50%;
+   top: 100%;
+   margin-left: -35px;
+   margin-top: -39px;
+}
+.win-flipview .win-navbutton {
+   border: none;
+   width: 69px;
+   height: 39px;
+   z-index: 1;
+   position: absolute;
+   font-family: "Segoe UI Symbol";
+   font-size: 16pt;
+   padding: 0;
+   min-width: 0;
+}
+.win-flipview .win-item, .win-flipview .win-item > .win-template {
+    display:-ms-flexbox;
+    height: 100%;
+    width: 100%;
+    -ms-flex-align:center;
+    -ms-flex-pack:center;
+}
+*/
+
+
+
+
+/* ***********************************************************************
+         Custom Styles
+   *********************************************************************** */
+
+/* Modal
+-------------------------------------------------- */
+.modal {
+   border: 0;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+}
+.modal.message,
+.modal.warning {
+   left: 0;
+   margin: 0;
+   padding: 0 20%;
+   width: 60%;
+   border: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+   .modal-header {
+      border: 0;
+   }
+   .modal-body {
+      max-height: 300px;
+   }
+   .modal-footer {
+      background-color: transparent;
+      border: 0;
+      -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+              border-radius: 0;
+      -webkit-box-shadow: none;
+         -moz-box-shadow: none;
+              box-shadow: none;
+   }
+.modal.message.fade.in {
+   top: 20%;
+}
+
+.modal.warning {
+   padding: 0 1%;
+   width: 100%;
+   -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box;
+   background-color: #0072BC !important;
+   color: #FFF;
+
+}
+   .modal.warning .modal-body {
+      display: inline-block;
+      width: 60%;
+      vertical-align: top;;
+   }
+   .modal.warning .modal-footer {
+      display: inline-block;
+      width: 30%;
+      vertical-align: top;;
+   }
+.modal.warning.fade.in {
+   top: 0;
+}
+
+/* Login
+-------------------------------------------------- */
+.login {
+   border: 0;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+}
+.login.message,
+.login.warning {
+   left: 0;
+   margin: 0;
+   padding: 0 20%;
+   width: 60%;
+   border: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}
+   .login-header {
+      border: 0;
+   }
+   .login-body {
+      max-height: 300px;
+   }
+   .login-footer {
+      background-color: transparent;
+      border: 0;
+      -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+              border-radius: 0;
+      -webkit-box-shadow: none;
+         -moz-box-shadow: none;
+              box-shadow: none;
+   }
+.login.message.fade.in {
+   top: 20%;
+}
+
+.login.warning {
+   padding: 0 1%;
+   width: 100%;
+   -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box;
+   background-color: #0072BC !important;
+   color: #FFF;
+
+}
+   .login.warning .modal-body {
+      display: inline-block;
+      width: 60%;
+      vertical-align: top;;
+   }
+   .login.warning .modal-footer {
+      display: inline-block;
+      width: 30%;
+      vertical-align: top;;
+   }
+.login.warning.fade.in {
+   top: 0;
+}
+
+/* Popover
+-------------------------------------------------- */
+.popover {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+.popover-inner {
+   /*width: 280px;*/
+   /*padding: 2px;*/
+   overflow: hidden;
+   /*background: #000;*/
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+.popover-title {
+   background-color: transparent;
+   border: 0;
+   line-height: 1;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+.popover-content {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+/* Buttons overrides
+-------------------------------------------------- */
+.btn-large {
+   font-size: 15px;
+   line-height: 24px;
+   padding: 2px 14px;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+   .btn-large.dropdown-toggle {
+      padding-top: 2px;
+      padding-bottom: 2px;;
+   }
+
+.btn-mini.dropdown-toggle {
+   padding-top: 5px;
+}
+
+.btn-small {
+   line-height: 16px;
+   min-height: 20px;
+   padding: 3px 9px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-warning,
+.btn-warning:hover,
+.btn-danger,
+.btn-danger:hover,
+.btn-success,
+.btn-success:hover,
+.btn-info,
+.btn-info:hover,
+.btn-inverse,
+.btn-inverse:hover {
+   text-shadow: none;
+}
+
+
+
+/* ButtonGroup
+-------------------------------------------------- */
+.btn-group > .btn:first-child,
+.btn-group > .btn:last-child,
+.btn-group > .dropdown-toggle {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+}
+.btn-group > .btn + .dropdown-toggle {
+   box-shadow: none;
+}
+.btn-group > .dropdown-toggle {
+   min-width: 20px;
+   padding-bottom: 5px;
+}
+
+
+/*
+Dropdown submenu
+*/
+.dropdown-submenu > a:after {
+   border: 0;
+   margin-right: -5px;
+   margin-top: 0;
+   color: #CCC;
+   font-family: 'IcoMoon';
+   content: '\e0f1'
+}
+
+/* DropDown Caret
+-------------------------------------------------- */
+.caret {
+   border: 0;
+   margin: 0;
+   min-width: 14px;
+   min-height: 18px;
+   padding: 0 3px;
+	font-family: 'IcoMoon';
+   font-size: inherit;
+   font-weight: normal;
+   line-height: 1;
+   text-indent: 0;
+   cursor: default;
+   opacity: 1;
+   filter: alpha(opacity=100);
+   overflow: hidden;
+   cursor: pointer;
+   vertical-position: bottom;
+}
+.caret:after {
+   content: "\e0f3";
+}
+
+a.header-dropdown .caret {
+   font-size: 26px;
+   font-weight: 200;
+   line-height: 30px;
+   width: auto;
+   height: 26px;
+   vertical-align: middle;
+}
+
+
+.dropdown .caret {
+   margin: 0;
+}
+
+.dropdown:hover .caret,
+.open .caret {
+   opacity: 0.6;
+   filter: alpha(opacity=60);
+}
+
+
+.btn .caret {
+   margin-top: 4px;
+}
+
+.btn-mini .caret {
+   margin-top: 5px;
+}
+
+.btn-small .caret {
+   margin: 0;
+}
+
+.btn-large .caret {
+   border: 0;
+}
+
+.dropup .caret, .navbar-fixed-bottom .dropdown .caret {
+   content: "";
+   border: 0;
+}
+.dropup .btn-large .caret {
+   border: 0;
+}
+.dropup .caret:after {
+   content: "\E0F2";
+}
+
+.btn-primary .caret,
+.btn-warning .caret,
+.btn-danger .caret,
+.btn-info .caret,
+.btn-success .caret,
+.btn-inverse .caret {
+   border: 0;
+}
+
+
+/*
+Dropdowns
+*/
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+   background-image: none;
+   filter: 0;
+}
+
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+   background-image: none;
+   filter: 0;
+}
+
+
+
+.nav-tabs .dropdown-toggle .caret,
+.nav-pills .dropdown-toggle .caret {
+   margin: 0;
+   border: 0;
+}
+
+.nav-tabs .dropdown-toggle:hover .caret,
+.nav-pills .dropdown-toggle:hover .caret {
+   margin: 0;
+   border: 0;
+}
+
+.nav-tabs .active .dropdown-toggle .caret,
+.nav-pills .active .dropdown-toggle .caret {
+   margin: 0;
+   border: 0;
+}
+.nav-tabs.nav-stacked > li:last-child > a,
+.nav-tabs.nav-stacked > li:first-child > a {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+.nav-pills .dropdown-menu {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+.nav li.dropdown.open .caret,
+.nav li.dropdown.open.active .caret,
+.nav li.dropdown.open a:hover .caret {
+   border: 0;
+   /*opacity: 1;*/
+   /*filter: alpha(opacity=100);*/
+}
+
+
+.navbar .nav li.dropdown .dropdown-toggle .caret,
+.navbar .nav li.dropdown.open .caret {
+   border: 0;
+   margin-top: 6px;
+}
+
+.navbar .nav li.dropdown.active .caret {
+   /*opacity: 1;*/
+   /*filter: alpha(opacity=100);*/
+}
+
+
+
+/*
+Nav List
+*/
+.nav-header {
+   font-size: 14px;
+   font-weight: 300;
+}
+
+
+/*
+NavBar
+*/
+.navbar-inner {
+   background-image: none;
+   filter: 0;
+   -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+           box-shadow: none;
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+}
+
+.navbar .btn-navbar {
+   background-image: none;
+   filter: 0;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: none;
+}
+.navbar-search .search-query {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+
+
+/*
+Breadcrumb
+*/
+.breadcrumb {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+
+/* Tabs & Pills
+-------------------------------------------------- */
+
+.tabs-below > .nav-tabs > li > a,
+.tabs-left > .nav-tabs > li > a,
+.tabs-right > .nav-tabs > li > a,
+.nav-tabs > li > a,
+.nav-pills > li > a {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+
+
+
+
+/* Form controls, general.
+-------------------------------------------------- */
+input, textarea, select, .uneditable-input {
+   -webkit-border-radius: none;
+   -moz-border-radius: none;
+   border-radius: 0;
+}
+
+
+/* Metro Radio button
+-------------------------------------------------- */
+/*
+   NOTE:
+   Originally the following rules used the adjacent sibling selector '+ span'
+   but in Rails & ASP.NET radio & checkbox are rendered with a supplemental hidden input following
+   the radio/checkbox, so I changed the rules to use the general sibling selector '~ span' and adding a
+   custom class to the span.
+   Note that the general sibling selector '~' is CSS3 only and is not supported in <= IE7.
+*/
+
+
+.controls > .radio:first-child, .controls > .checkbox:first-child {
+   padding-top: 0;
+}
+
+label.radio,
+label.checkbox {
+   cursor: pointer;
+   position: relative;
+   padding-left: 0;
+}
+
+input[type=radio],
+input[type=radio] ~ span.metro-radio,
+input[type=radio] ~ span.metro-radio::before,
+input[type=radio] ~ span.metro-radio::after {
+   vertical-align: middle;
+   display: inline-block;
+}
+input[type=radio] {
+   /*position: absolute;*/
+   filter: alpha(opacity=0);
+   -moz-opacity: 0;
+   /*opacity: 0;*/
+}
+input[type=radio] ~ span.metro-radio {
+   padding-left: 36px;
+   padding-top: 4px;
+}
+input[type=radio] ~ span.metro-radio::before {
+   font-family: 'IcoMoon';
+   content: "\e10b";
+   text-indent: -9999px;
+   border: 2px solid #BABABA;
+   background: #FFF;
+   position: absolute;
+   left: 0;
+   top: 2px;
+   width: 20px;
+   height: 20px;
+   margin-right: 10px;
+   -webkit-border-radius: 50%;
+   -moz-border-radius: 50%;
+   border-radius: 50%;
+}
+input[type=radio]:checked ~ span.metro-radio::after {
+   text-indent: -9999px;
+   font-family: 'IcoMoon';
+   content: "\e10b";
+   background: #000;
+   position: absolute;
+   left: 6px;
+   top: 8px;
+   width: 12px;
+   height: 12px;
+   z-index: 1000;
+   -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+           border-radius: 50%;
+}
+/* this set the background color for checked radio */
+/*input[type=radio]:checked + span::before {*/
+   /*background: #d1d1d1;*/
+/*}*/
+input[type=radio]:not(:checked):disabled ~ span.metro-radio::before,
+input[type=radio]:disabled ~ span.metro-radio::before,
+input[type=radio]:disabled ~ span.metro-radio::after {
+   cursor: default;
+   background: #868686;
+}
+
+
+/* Metro Checkbox
+-------------------------------------------------- */
+label.checkbox input[type=checkbox],
+label.checkbox input[type=checkbox] ~ span.metro-checkbox,
+label.checkbox input[type=checkbox] ~ span.metro-checkbox::before,
+label.checkbox input[type=checkbox] ~ span.metro-checkbox::after {
+   vertical-align: middle;
+   display: inline-block;
+}
+label.checkbox input[type=checkbox] {
+   position: absolute;
+   filter: alpha(opacity=0);
+   -moz-opacity: 0;
+   opacity: 0;
+}
+label.checkbox input[type=checkbox] ~ span.metro-checkbox {
+   padding-left: 36px;
+   padding-top: 4px;
+}
+
+label.checkbox input[type=checkbox]:checked ~ span.metro-checkbox::after {
+   border: 2px solid #BABABA;
+   background-color: #FFF;
+   font-family: 'IcoMoon';
+   content: "\e20c";
+   color: #202020;
+   font-size: 16px;
+   position: absolute;
+   top: 2px;
+   left: 0;
+   width: 18px;
+   height: 18px;
+   z-index: 1000;
+}
+label.checkbox input[type=checkbox] ~ span.metro-checkbox::after {
+   border: 2px solid #BABABA;
+   background-color: #FFF;
+   font-family: 'IcoMoon';
+   content: "\2003";
+   font-size: 16px;
+   position: absolute;
+   top: 2px;
+   left: 0;
+   width: 18px;
+   height: 18px;
+   z-index: 1000;
+}
+
+label.checkbox input[type=checkbox]:not(:checked):disabled ~ span.metro-checkbox::after,
+label.checkbox:hover input[type=checkbox]:disabled ~ span.metro-checkbox::after,
+label.checkbox input[type=checkbox]:disabled ~ span.metro-checkbox::after {
+   cursor: default;
+   background: #BABABA;
+}
+label.checkbox input[type=checkbox]:disabled ~ span.metro-checkbox::after {
+   color: #4c4c4c;
+}
+
+
+
+
+/* Navigation
+-------------------------------------------------- */
+
+header h1 {display: inline;}
+
+#header-container {display: inline-block;}
+
+
+#nav-bar {
+   display: block;
+   position: relative;
+   height: 64px;
+   margin-bottom: 20px;
+}
+
+
+#top-info {
+   display: block;
+}
+#top-info a {
+   display: inline-block;
+   height: 46px;
+   color: #5A5A5A;
+}
+#top-info a:hover {
+   color: #000;
+}
+   .top-info-block {
+      display: block;
+      float: left;
+      margin-left: 8px;
+   }
+   #top-info b {
+       display: inline-block;
+       font-size: 38px;
+       height: 46px;
+       line-height: 46px;
+       vertical-align: top;
+       width: 46px;
+      text-align: center;
+   }
+   #top-info hr.separator {
+      background-color: #7B7B7B;
+      border: 0 none;
+      display: inline-block;
+      height: 42px;
+      margin: 2px 10px;
+      padding: 0;
+      vertical-align: top;
+      width: 1px;
+   }
+
+
+
+/* Forms
+-------------------------------------------------- */
+.form-actions {
+   background-color: inherit;
+}
+
+
+.label {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   text-shadow: none;
+}
+
+
+
+/* Tables
+-------------------------------------------------- */
+.table thead {
+   border-bottom: 1px solid #BEBEBE;
+}
+
+.table th {
+   /*font-family: "Open Sans", Arial, Helvetica, Sans-Serif;*/
+   font-size: 9pt;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.table th, .table td {
+   border-top: 0;
+
+}
+
+
+/* Pagination
+-------------------------------------------------- */
+.pagination ul {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   box-shadow: 0;
+}
+.pagination ul > li:first-child > a,
+.pagination ul > li:first-child > span,
+.pagination ul > li:last-child > a,
+.pagination ul > li:last-child > span {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+.pagination .active a {
+   color: #FFF;
+}
+.pagination a:hover, .pagination .active a {
+   background-color: #CCC;
+}
+
+
+.pager li > a, .pager li > span {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+.pager .previous a:before {
+   font-family: 'IcoMoon';
+	content: "\e0f4";
+}
+.pager .next a:after {
+   font-family: 'IcoMoon';
+	content: "\e0f1";
+}
+
+
+/*
+Badge
+*/
+.badge {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+/*
+Hero Unit
+*/
+.hero-unit {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+/*
+Thumbnail
+*/
+.thumbnail {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+
+/* Content Filter Dropdown
+-------------------------------------------------- */
+#content-filters {
+   margin: 10px 0;
+}
+   #content-filters nav nav-pills {
+
+   }
+   #content-filters .nav-pills > li > a {
+      display: inline-block;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+   }
+   .nav > li > a:hover {
+      text-decoration: none;
+      background-color: inherit;
+   }
+   #content-filters .nav-pills > .active > a,
+   #content-filters .nav-pills > .active > a:hover {
+      color: inherit;
+      background-color: transparent;
+   }
+   #content-filters .nav-pills > li > span {display: inline-block;}
+
+   #content-filters div {
+      position: relative;;
+   }
+   #content-filters a {
+      font-size: 15px;
+      margin-right: 40px;
+   }
+
+
+
+/* Alerts
+-------------------------------------------------- */
+.alert {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+   text-shadow: none;
+   background-color: #D44A26;
+   border-color: #D44A26;
+   color: #FFF;
+   position: relative;
+}
+
+.modal .close,
+.alert .close {
+   position: absolute;
+   top: 0;
+   right: 0;
+   display: inline-block;
+   min-width: 0;
+   min-height: 0;
+   width: 30px;
+   height: 30px;
+	font-family: 'IcoMoon';
+   font-weight: normal;
+   font-size: 12px;
+   line-height: 12px;
+   text-indent: 0;
+   text-shadow: none;
+   opacity: 1;
+   background-clip: border-box;
+   box-sizing: border-box;
+   border: 0;
+   text-align: center;
+   vertical-align: baseline;
+}
+.modal .close:after,
+.alert .close:after {
+   content: "\e131";
+   font-size: 16px;
+}
+   .alert .close:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+      color: #FFF;
+   }
+   .modal .close:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #FFF;
+      margin-top: 0;
+   }
+
+.alert-success {
+   color: #FFFFFF;
+   background-color: #01A31C;
+   border-color: #01A31C;
+}
+
+.alert-danger,
+.alert-error {
+   color: #FFFFFF;
+   background-color: #BC1C48;
+   border-color: #BC1C48;
+}
+
+.alert-info {
+   color: #FFFFFF;
+   background-color: #2D89F0;
+   border-color: #2D89F0 ;
+}
+
+.alert-heading {
+   font-weight: 600;
+}
+
+
+
+.well {
+   -webkit-border-radius: 0;
+   -moz-border-radius: 0;
+   border-radius: 0;
+}
+
+
+/*
+Carousel
+*/
+.carousel-control {
+   font-family: "IcoMoon";
+   font-size: 40px;
+   line-height: 40px;
+   border-width: 2px;
+}
+
+.panorama {
+  position: relative;
+  width: 100%;
+  margin: 0 40px 0 0;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.panorama.nohidden {
+  width: auto;
+  overflow: inherit;
+}
+
+.panorama .panorama-sections {
+  position: relative;
+  width: 10000px;
+  height: auto;
+  padding-bottom: 24px;
+  overflow: hidden;
+}
+
+.panorama .panorama-sections h2 {
+  margin-left: 5px;
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+.panorama .panorama-sections .panorama-section {
+  position: relative;
+  float: left;
+  width: auto;
+  height: auto;
+  margin-right: 75px;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-1 {
+  width: 160px;
+  margin-left: 0;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-2 {
+  width: 320px;
+  margin-left: 0;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-3 {
+  width: 480px;
+  margin-left: 0;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-4 {
+  width: 640px;
+  margin-left: 0;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-5 {
+  width: 640px;
+  margin-left: 0;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-6 {
+  width: 800px;
+  margin-left: 0;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-7 {
+  width: 960px;
+  margin-left: 0;
+}
+
+.panorama .panorama-sections .panorama-section.tile-span-8 {
+  width: 1120px;
+  margin-left: 0;
+}
+#panorama-scroll-prev,
+#panorama-scroll-next {
+  position: absolute;
+  top: 96px;
+  left: 4px;
+  z-index: 1061;
+  display: inline-block;
+  width: 42px;
+  width: 32px;
+  height: 42px;
+  height: 32px;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  font-family: 'icomoon';
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 40px !important;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  background: none;
+  border-style: solid;
+  border-width: 2px;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  outline: 0;
+  background-clip: border-box;
+  font-variant: normal;
+}
+
+#panorama-scroll-next {
+  right: 4px;
+  left: auto;
+}
+
+#panorama-scroll-prev:hover,
+#panorama-scroll-next:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+#panorama-scroll-prev:before {
+  font-size: 20px;
+  line-height: 32px;
+  vertical-align: top;
+  content: "\e05d";
+}
+
+#panorama-scroll-next:before {
+  font-size: 20px;
+  line-height: 32px;
+  vertical-align: top;
+  content: "\e059";
+}
+
+#panorama-scroll-prev-bkg,
+#panorama-scroll-next-bkg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: block;
+  width: 40px;
+  height: 100%;
+  background-color: transparent;
+}
+
+#panorama-scroll-next-bkg {
+  right: 0;
+  left: auto;
+}
+
+#panorama-scroll-prev-bkg:hover,
+#panorama-scroll-next-bkg:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+/* Wizard */
+.wizard {
+   background-color: #FFF;
+}
+
+#wizard-steps-container {
+   background-color: #0072BC !important;
+   color: #FFF;
+}
+   #wizard-steps-container h2 {
+      margin-bottom: 30px;
+      padding: 20px;
+   }
+
+   ul#wizard-steps {
+     list-style-type: none;
+      margin: 0;
+   }
+      ul#wizard-steps li {
+         list-style-type: none;
+         display: block;
+         width: 100%;
+         height: 36px;
+      }
+      ul#wizard-steps li.active {
+         background-color: #FFF;
+      }
+         ul#wizard-steps li a {
+            display: block;
+            width: 100%;
+            height: 36px;
+            padding: 0 20px;
+            font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+            font-weight: 300;
+            line-height: 36px;
+            text-transform: uppercase;
+            color: #FFF;
+            text-decoration: none;
+         }
+         ul#wizard-steps li.active a {
+            color: #666;
+         }
+
+#wizard-step-content {
+   margin-top: 20px;
+   padding: 0;
+   vertical-align: top;
+}
+.D_title .close,.ico_lay_wechat,.ico_lay_weibo{background:url(../../content/img/sprite_mVideo_lay_130906b.png)}
+.D_title .close{float:right;display:block;width:31px;height:31px;background-position:-57px 0}.D_title .close:hover{background-color:#ebebeb;border-radius:3px}.ico_lay_wechat,.ico_lay_weibo{width:56px;height:56px}.ico_lay_weibo{background-position:0 -57px}.btn_download{width:234px;overflow:hidden}.btn_download_in{background:none;margin:0 0 0 -91px;height:67px;padding-left:91px}.btn_download_lk{background-position:-91px 0;_filter:none;background-repeat:no-repeat;position:relative;cursor:pointer;width:220px;height:53px;padding-left:14px;padding-top:14px;display:block}.btn_download_lk:hover{background-position:-91px -68px;text-decoration:none}.btn_download .ico_down,.btn_download .ico_down_in{display:inline-block;*display:inline;*zoom:1}.btn_download .ico_down{overflow:hidden;vertical-align:top;margin-right:7px}.ico_down_iphone,.ico_down_android{width:36px;height:38px}.ico_down_iphone .ico_down_in{width:362px;height:75px;margin:-37px 0 0 -326px}.ico_down_android .ico_down_in{width:400px;height:75px;margin:-37px 0 0 -363px}.btn_download .txt{vertical-align:top;font-size:24px;color:#fff;text-shadow:#336812 0 1px 0;line-height:35px;_line-height:40px;*zoom:1}.e_btn_download2{width:190px;height:57px}.e_btn_download2 .btn_download_in{margin:-136px 0 0 -91px;height:251px;padding-top:136px}.e_btn_download2 .btn_download_lk{background-position:-91px -136px;width:173px;height:46px;padding-left:17px;padding-top:11px}.e_btn_download2 .btn_download_lk:hover{background-position:-91px -194px;text-decoration:none}.e_btn_download2 .ico_down{margin-right:4px}.e_btn_download2 .ico_down_iphone,.e_btn_download2 .ico_down_android{width:24px;height:34px}.e_btn_download2 .ico_down_iphone .ico_down_in{width:350px;height:135px;margin:-101px 0 0 -326px}.e_btn_download2 .ico_down_android .ico_down_in{width:375px;height:135px;margin:-101px 0 0 -351px}.e_btn_download2 .txt{font-size:20px;line-height:33px;_line-height:34px}.download_note{width:214px;padding:0 10px;color:#fff;text-align:center;opacity:.7}.mod_hd{position:relative;height:660px;background:#000;overflow:hidden}.mod_hd_con{position:relative;min-width:940px;max-width:1060px;_width:940px;height:617px;margin:0 auto;padding:43px 11px 0 9px}.mod_hd .topic{position:relative;z-index:1;width:600px;float:left}.mod_hd .c1{float:left;margin-right:18px;padding-top:5px}.mod_hd .c1 .logo{width:90px;height:90px}.mod_hd .c2{width:460px;overflow:hidden}.mod_hd .c2 .tit,.mod_hd .c2 .desc{font-family:Microsoft Yahei,Helvetica,Arial,sans-serif;text-shadow:rgba(0,0,0,.4) 0 1px 5px;padding-left:4px}.mod_hd .c2 .tit{padding-top:5px;font-size:34px}.mod_hd .c2 .desc{padding-top:6px;font-size:16px}.mod_hd .c2 .action{margin-top:45px}.mod_hd .c2 .action .acWrap{float:left;width:220px}.mod_hd .c2 .action .ac1{margin-bottom:12px}.mod_hd .c2 .action .ac2 .txt{width:109px;margin-top:5px;text-shadow:#343434 0 1px 0}.mod_hd .c2 .action .qrcode_down{width:109px;padding-top:6px;text-align:center}.mod_hd .c2 .action .qrcode_down img{vertical-align:top;border:#dcdcdc 1px solid}.mod_hd .contact{position:relative;z-index:1;float:right;padding-top:7px;padding-right:21px}.phone{position:absolute;bottom:0;right:0;width:350px;height:549px;overflow:hidden}.phone_in{width:350px;height:538px;padding-top:112px}.screen_ls{width:237px;height:428px;padding:0 57px 0 56px;overflow:hidden}.screen_ls:after{content:'';display:block;display:none\9;position:absolute;top:112px;width:0;height:0;border-width:0 0 315px 110px;border-color:transparent transparent transparent #fff;border-style:dashed dashed solid solid;opacity:.13;pointer-events:none}:root .screen_ls:after{display:block\9}.screen_ls .screen_ls_in{-webkit-transition:-webkit-transform .5s ease-in-out;-moz-transition:-moz-transform .5s ease-in-out;-o-transition:-o-transform .5s ease-in-out;-ms-transition:-ms-transform .5s ease-in-out;transition:transform .5s ease-in-out}.screen_ls .item{opacity:.5;visibility:hidden\9;width:237px;height:428px;background-position:0 0;background-repeat:no-repeat;-webkit-transition:opacity .5s ease-in-out;-moz-transition:opacity .5s ease-in-out;-o-transition:opacity .5s ease-in-out;-ms-transition:opacity .5s ease-in-out;transition:opacity .5s ease-in-out}.screen_ls .item_1 .screen{background-image:url(http://mat1.gtimg.com/www/mb/images/mv/screen1_131125.png)}.screen_ls .item_2 .screen{background-image:url(http://mat1.gtimg.com/www/mb/images/mv/screen2_131029.jpg)}.screen_ls .item_3 .screen{background-image:url(http://mat1.gtimg.com/www/mb/images/mv/screen3_131029.jpg)}.avgirl{position:relative}.avgirl a{position:absolute}.clickAvgirl{width:227px;height:322px;display:block}.clickqipao{right:-60px;top:-100px;width:190px;height:150px;background:url(http://mat1.gtimg.com/www/mb/images/mv/qipao.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://mat1.gtimg.com/www/mb/images/mv/qipao.png')}.phone_in .item .screen{width:230px;height:331px;padding:97px 0 0 7px}.phone_in .item .video,.phone_in .item .video video{width:223px;height:223px}.f_showScreen1 .item_1{opacity:1;visibility:visible\9}.f_showScreen2 .item_2{opacity:1;visibility:visible\9}.f_showScreen3 .item_3{opacity:1;visibility:visible\9}.f_showScreen1 .screen_ls_in{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);margin-top:0\9}.f_showScreen2 .screen_ls_in{-webkit-transform:translate3d(0,-428px,0);-moz-transform:translate3d(0,-428px,0);-o-transform:translate3d(0,-428px,0);transform:translate3d(0,-428px,0);-ms-transform:translate3d(0,0,0);margin-top:-428px\9}.f_showScreen3 .screen_ls_in{-webkit-transform:translate3d(0,-856px,0);-moz-transform:translate3d(0,-856px,0);-o-transform:translate3d(0,-856px,0);transform:translate3d(0,-856px,0);-ms-transform:translate3d(0,0,0);margin-top:-856px\9}.mod_hd .dots{float:right;position:absolute;right:344px;bottom:59px;width:24px}.mod_hd .dots .item{width:24px;height:24px;vertical-align:middle;margin-bottom:12px;overflow:hidden}.mod_hd .dots .num{width:331px;height:100px}.mod_hd .dots .num a{position:relative;display:block;width:22px;padding-right:2px;width:24px\9;padding-right:0\9;height:24px;text-align:center;line-height:24px;line-height:23px\9;font-family:Helvetica,Arial;font-weight:800;color:#fff}.mod_hd .dots .num a:hover{text-decoration:none}.mod_hd .dots .select a{color:#908677}.mod_hd .wording{margin-right:0;position:absolute;right:374px;bottom:124px;width:430px;height:62px;overflow:hidden;-webkit-transition:-webkit-transform .5s ease;-moz-transition:-moz-transform .5s ease;-o-transition:-o-transform .5s ease;-ms-transition:-ms-transform .5s ease;transition:transform .5s ease}.mod_hd .wording .darkbg{position:absolute;width:430px;height:248px}.mod_hd .wording li{position:relative;display:none}.mod_hd .wording .txt{height:62px;overflow:hidden}.mod_hd .wording .txt_in{width:430px;height:248px}.mod_hd .wording p{text-indent:-9999em}.mod_hd .e_wording_1{-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);margin-bottom:0\9}.mod_hd .e_wording_2{-webkit-transform:translate3d(0,36px,0);-moz-transform:translate3d(0,36px,0);-o-transform:translate3d(0,36px,0);transform:translate3d(0,36px,0);-ms-transform:translate3d(0,0,0);margin-bottom:-36px\9}.mod_hd .e_wording_3{-webkit-transform:translate3d(0,72px,0);-moz-transform:translate3d(0,72px,0);-o-transform:translate3d(0,72px,0);transform:translate3d(0,72px,0);-ms-transform:translate3d(0,0,0);margin-bottom:-72px\9}.mod_hd .e_wording_1 .item1,.mod_hd .e_wording_2 .item2,.mod_hd .e_wording_3 .item3{display:block}.mod_bd .m_b_hd,.mod_bd .m_b_bd{min-width:960px;max-width:1004px;_width:960px;margin:0 auto}.mod_bd .m_b_hd{height:64px;border-bottom:#dbdbdb 1px solid}.mod_bd .m_b_hd .tit{float:left;padding-top:24px;font-size:24px;font-family:Microsoft Yahei;color:#333}.mod_bd .m_b_hd .opt{float:right;font-size:14px;padding-top:34px;font-family:Microsoft Yahei}.mod_bd .m_b_hd .opt a{color:#888}.mod_bd .m_b_bd{padding-bottom:30px}.av_ls{position:relative;padding-top:25px}.av_ls .ar{position:absolute}.av_ls .ar a{display:block;width:90px;height:255px;padding-top:145px;cursor:pointer}.av_ls .ar em{display:block;width:40px;height:70px}.av_ls .arl{left:0;margin-left:-30px}.av_ls .arr{right:0;margin-right:-30px}.av_ls .arr em{float:right}.av_ls .av_con{*position:relative;width:900px;height:400px;margin:0 auto;overflow:hidden}.av_ls .av_pg{width:900px;float:left;-webkit-transform:rotate(0deg)}.av_ls .item{float:left;width:150px;height:200px}.av_ls .pic{position:relative;width:128px;height:124px;padding-top:4px;margin:0 auto;text-align:center}.av_ls .pic a{cursor:pointer}.av_ls .pic img{width:120px;height:120px;border-radius:60px}.av_ls .pic .mask{width:128px;height:128px;position:absolute;left:0;top:0}.av_ls .txt{text-align:center}.av_ls .txt a{font-family:Microsoft Yahei;color:#a1a3a6;font-size:16px;vertical-align:middle}.av_ls .txt a:hover{text-decoration:none}.av_ls .page{text-align:center}.av_ls .page .dot{width:16px;height:16px;display:inline-block;*display:inline;*zoom:1;vertical-align:middle}.av_info{position:absolute;z-index:900;width:278px;_border:#e5e5e5 4px solid;-webkit-animation:opacity .3s ease-in-out;-moz-animation:opacity .3s ease-in-out;-o-animation:opacity .3s ease-in-out;-ms-animation:opacity .3s ease-in-out;animation:opacity .3s ease-in-out}.av_info .arr{display:none;_display:block;position:absolute;top:-12px;left:30px}.av_info .arr .ar1,.av_info .arr .ar2{position:absolute;font-family:Simsun;font-size:20px}.av_info .arr .ar1{color:#e5e5e5;margin-top:-5px}.av_info .arr .ar2{color:#fff}.av_info .hd{height:15px;background-position:0 0}.av_info .bd{background-position:-279px 0;background-repeat:repeat-y;padding:0 15px;line-height:2em;word-wrap:break-word;word-break:break-all;color:#333}.av_info .ft{height:9px;background-position:0 bottom}.tagnav{margin-top:25px;text-align:center}.tagnav .item,.tagnav .item a,.tagnav .item .txt,.tagnav .item .ar{display:inline-block;*display:inline;*zoom:1;vertical-align:middle}.tagnav .item{position:relative;text-align:center}.tagnav .item a{cursor:pointer}.tagnav .item a:hover{text-decoration:none}.tagnav .item .txt{height:32px;padding:0 12px;line-height:30px;color:#333;font-size:22px;font-family:Microsoft Yahei}.tagnav .item .ar{position:absolute;width:30px;left:50%;margin-left:-15px;bottom:-9px;display:none;color:#01adba}.tagnav .select a,.tagnav .item a:hover{background:#01adba;border-radius:3px}.tagnav .select a .txt,.tagnav .item a:hover .txt{color:#fff}.tagnav .select .ar,.tagnav .item a:hover .ar{text-align:center;display:inline-block;*display:inline;*zoom:1}.tagnav .dot{margin:0 6px}.ws_ls{max-width:1004px;min-width:960px;*width:960px;margin:25px auto 0}.ws_ls .col{width:25%;float:left}.ws_ls .last{margin-right:0}.ws_ls .item{width:235px;vertical-align:top;background:#fff;margin:0 auto 30px;border-bottom:#e4e4e4 1px solid;color:#333;font-family:Microsoft Yahei}.ws_ls .videoBox{position:relative}.ws_ls .videoBox img{width:235px;height:235px;vertical-align:top}.ws_ls .videoBox .playbtn{position:absolute;top:190px;left:15px}.ws_ls .videoBox .mask{position:absolute;width:235px;height:235px;left:0;top:0}.ws_ls .videoBox a{cursor:pointer}.ws_ls .videoBox a .mask{background:#000;opacity:.2;filter:alpha(opacity=20);-webkit-transition:opacity .2s ease-in-out;-moz-transition:opacity .2s ease-in-out;-o-transition:opacity .2s ease-in-out;-ms-transition:opacity .2s ease-in-out;transition:opacity .2s ease-in-out}.ws_ls .videoBox a:hover .mask{opacity:0;filter:alpha(opacity=0)}.ws_ls .comtBox{position:relative;padding:15px 10px 10px;*zoom:1;_font-family:Tahoma,sans-serif}.ws_ls .comtBox .time{position:absolute;right:10px;padding-top:8px}.ws_ls .comtBox .userPic{margin-right:5px;float:left}.ws_ls .comtBox .userPic img{width:35px;height:35px;border-radius:5px;vertical-align:top}.ws_ls .comtBox .userName{padding-top:5px;overflow:hidden;font-size:14px}.ws_ls .comtBox .msgBox{clear:both;padding-top:10px;*zoom:1}.ws_ls .comtBox .msgCnt{height:48px;overflow:hidden;word-wrap:break-word;word-break:break-all;line-height:24px}.ws_ls .comtBox .msgCnt img{vertical-align:middle}.ws_ls .comtBox .pubInfo{color:#888;padding-top:10px;border-top:#d8d8d8 1px dotted;margin-top:10px}.mod_ft{margin-top:45px}.mod_flft{position:fixed;_position:relative;z-index:901;bottom:0;width:100%;height:70px;-webkit-animation:flft .5s ease;-moz-animation:flft .5s ease;-o-animation:flft .5s ease}@-webkit-keyframes flft{0%{-webkit-transform:translate3d(0,90px,0)}100%{-webkit-transform:translate3d(0,0,0)}}@-moz-keyframes flft{0%{-moz-transform:translate3d(0,90px,0)}100%{-moz-transform:translate3d(0,0,0)}}@-o-keyframes flft{0%{-o-transform:translate3d(0,90px,0)}100%{-o-transform:translate3d(0,0,0)}}.mod_flft .darkbg{position:absolute;width:100%;height:100%;left:0;top:0;background:#000;opacity:.5;filter:alpha(opacity=50);_filter:none;_background:#808080}.mod_flft_in{padding-top:5px;position:relative;width:960px;margin:0 auto}.mod_flft .logo{float:left;width:60px;height:60px;overflow:hidden;margin-right:12px}.mod_flft .logo_in{width:90px;height:151px;margin:-91px 0 0 0}.mod_flft_in .tit{float:left;padding-top:13px;font-size:22px;color:#fff;font-family:Microsoft Yahei}.mod_flft_in .action{float:left;padding-top:2px;margin-left:12px}.mod_flft_in .qrcode_down{float:left;padding-top:5px;padding-left:15px}.mod_flft_in .qrcode_down img{width:50px;height:50px}.mod_flft_in .qrcode_con{position:absolute;right:-4px;bottom:60px;width:204px;height:218px;padding:4px 0 0 4px;background:url(http://mat1.gtimg.com/www/mb/images/mv/qrcode_con.png);_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='http://mat1.gtimg.com/www/mb/images/mv/qrcode_con.png');-webkit-animation:qrcode_con .5s ease 1;-moz-animation:qrcode_con .5s ease 1;-o-animation:qrcode_con .5s ease 1;-ms-animation:qrcode_con .5s ease 1;animation:qrcode_con .5s ease 1}@-webkit-keyframes qrcode_con{0%{opacity:0;-webkit-transform:translate3d(0,20px,0)}100%{opacity:1;-webkit-transform:translate3d(0,0,0)}}@-moz-keyframes qrcode_con{0%{opacity:0;-moz-transform:translate3d(0,20px,0)}100%{opacity:1;-moz-transform:translate3d(0,0,0)}}@-o-keyframes qrcode_con{0%{opacity:0;-o-transform:translate3d(0,20px,0)}100%{opacity:1;-o-transform:translate3d(0,0,0)}}@-ms-keyframes qrcode_con{0%{opacity:0;-ms-transform:translate3d(0,20px,0)}100%{opacity:1;-ms-transform:translate3d(0,0,0)}}@keyframes qrcode_con{0%{opacity:0;transform:translate3d(0,20px,0)}100%{opacity:1;transform:translate3d(0,0,0)}}.mod_flft_in .qrcode_con img{vertical-align:top}.copyright{min-width:940px;max-width:1004px;_width:940px;margin:0 auto;padding:0 11px 115px 9px;_padding-bottom:45px;color:#888}.copyright a,.copyright a:hover{color:#888}.moreFoot{text-align:center;font-size:14px;color:#666}.loading{background-position:45% 50%}.bgGroup{opacity:0;visibility:hidden\9;position:absolute;width:100%;height:100%;right:0;top:0;background-position:50% 50%;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;-ms-background-size:cover;background-size:cover;-webkit-transition:opacity .5s ease-in-out;-moz-transition:opacity .5s ease-in-out;-o-transition:opacity .5s ease-in-out;-ms-transition:opacity .5s ease-in-out;transition:opacity .5s ease-in-out}.bgSelect{opacity:1;visibility:visible\9}.bgIE{position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden}
+.D_lay{position:absolute;width:100%;height:100%;left:0;top:0;z-index:9999;background:url(about:blank)}
+.D_wrap{position:absolute;left:50%;top:45%;margin:-160px 0 0 -305px;width:610px;height:320px;background:#fff;background-clip:padding-box;border:#333 4px solid;border-color:rgba(0,0,0,.5);box-shadow:rgba(0,0,0,.75) 0 2px 8px;-webkit-animation:DShow .5s ease-in-out 1;-moz-animation:DShow .5s ease-in-out 1;-o-animation:DShow .5s ease-in-out 1;-ms-animation:DShow .5s ease-in-out 1;animation:DShow .5s ease-in-out 1}@-webkit-keyframes DShow{0%{-webkit-transform:scale(.95);opacity:0}100%{-webkit-transform:scale(1);opacity:1}}@-moz-keyframes DShow{0%{-moz-transform:scale(.95);opacity:0}100%{-moz-transform:scale(1);opacity:1}}@-o-keyframes DShow{0%{-o-transform:scale(.95);opacity:0}100%{-o-transform:scale(1);opacity:1}}@-ms-keyframes DShow{0%{-ms-transform:scale(.95);opacity:0}100%{-ms-transform:scale(1);opacity:1}}@keyframes DShow{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+.D_title{height:34px;padding:3px 3px 0;background-color:#E8E8E8}
+.D_cont{padding:10px 26px 20px 40px}
+.D_cont .c1{width:310px;float:left;padding-top:16px}
+.D_cont .c1 .t{margin-bottom:36px}
+.D_cont .c1 .pic{float:left;margin-right:10px;padding-top:2px}
+.D_cont .c1 .detail{overflow:hidden;font-size:26px}
+.D_cont .c2{width:232px;float:right}
+.D_cont .c2 .qrcode img{width:232px;height:232px}
+.D_cont .c2 .txt{color:#999}

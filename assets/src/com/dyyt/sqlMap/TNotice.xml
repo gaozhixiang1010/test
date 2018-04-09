@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyyt.dao.TNoticeDAO">
+	<!-- 查询资产类型 -->
+	<select id="queryNoticePage" parameterType="com.dyyt.model.TNotice" resultType="com.dyyt.model.TNotice">
+		select notice_id,notice_title,create_date,IF(LENGTH(notice_content)>72,concat(left(notice_content, 50),'..'),notice_content) notice_content from t_notice where 1 = 1
+		<!-- 
+		<if test="type_name != ''">
+		   <![CDATA[and a.type_name like '%${type_name}%' ]]>
+		</if>
+		 -->
+		order by notice_id desc
+	</select>
+	<select id="queryNotice" resultType="com.dyyt.model.TNotice">
+		select notice_id,notice_title,create_date,IF(LENGTH(notice_content)>72,concat(left(notice_content, 50),'..'),notice_content) notice_content from t_notice where 1 = 1
+		order by notice_id desc
+	</select>
+	<!-- 新增资产类型 -->
+	<insert id="addNotice" parameterType="com.dyyt.model.TNotice">
+		insert into t_notice (notice_title,notice_content,create_date) values (#{notice_title},#{notice_content},now())
+	</insert>
+	<!-- 通过ID获取资产类型 -->
+	<select id="getNoticeBean" parameterType="String" resultType="com.dyyt.model.TNotice">
+		select * from t_notice where notice_id = #{notice_id}
+	</select>
+	<!-- 修改资产类型 -->
+	<update id="updateNotice" parameterType="com.dyyt.model.TNotice">
+		UPDATE t_notice set notice_title = #{notice_title},notice_content = #{notice_content} where notice_id = #{notice_id}
+	</update>
+	<!-- 根据ID删除资产类型 -->
+	<delete id="deleteNotice" parameterType="String">
+		DELETE FROM t_notice WHERE notice_id = #{notice_id}
+	</delete>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties>   
+			<property name="dialect" value="mysql" />  
+		    <property name="pageSqlId" value=".*Page$" />  
+	</properties>
+	<plugins>  
+      	<plugin interceptor="com.dyyt.common.PageInterceptor"></plugin>  
+    </plugins>
+	 <!-- 
+	<typeAliases>
+	<typeAlias alias="T_Commodity_Father" type="com.dyyt.model.T_Commodity_Father" />
+	</typeAliases>
+	 -->
+	<!-- 
+	<plugins>  
+      		<plugin interceptor="com.community.utils.PageInterceptor">
+      		</plugin>  
+    </plugins>  
+     
+	<mappers>
+		<mapper resource="com/dyyt/sqlMap/TCommodityFather.xml" />
+		<mapper resource="com/dyyt/sqlMap/TCommodity.xml" />
+		<mapper resource="com/dyyt/sqlMap/TReturnPlan.xml" />
+		 <package name="com.dyyt.sqlMap"/> 
+	</mappers>-->
+</configuration>

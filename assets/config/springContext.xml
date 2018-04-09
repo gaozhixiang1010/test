@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc" 
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd    
+            http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-3.2.xsd  
+            http://www.springframework.org/schema/context     
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd    
+            http://www.springframework.org/schema/mvc    
+            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">  
+
+    <!-- 默认的注解映射的支持 -->  
+    <mvc:annotation-driven />  
+        <!-- 扫描controller -->
+	<context:component-scan base-package="com.dyyt" >
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>  
+	<!-- 静态资源过滤 -->
+	
+    <mvc:resources mapping="/img/**" location="/content/img/" />
+    <mvc:resources mapping="/img/**" location="/content/ico/" />
+    <mvc:resources mapping="/js/**" location="/js/" />
+    <mvc:resources mapping="/css/**" location="/content/css/" /> 
+    <mvc:resources mapping="/font/**" location="/content/font/" /> 
+     
+    <!-- BoneCP dataSource -->
+    <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<!-- 数据库-->
+		<property name="url" value="jdbc:mysql://localhost:3300/assets?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull" />
+		<property name="username" value="root1" />
+		<property name="password" value="root" />
+	</bean>
+	<!-- 
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@192.168.1.189:1521:minesafy"></property>
+		<property name="username" value="minesafy"></property>
+		<property name="password" value="minesafy"></property>
+		<property name="maxActive" value="100"></property>
+		<property name="maxIdle" value="30"></property>
+		<property name="maxWait" value="500"></property>
+		<property name="defaultAutoCommit" value="true"></property>
+	    <property name="removeAbandoned" value="true" />
+	    <property name="removeAbandonedTimeout" value="180" />
+	</bean>   
+	 --> 
+    <!-- 
+    <context:property-placeholder location="classpath:database.properties" ignore-unresolvable="true" />
+
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
+	   <property name="driverClass" value="${jdbc.driver}" />
+	   <property name="jdbcUrl" value="${jdbc.url}" />
+	   <property name="username" value="${jdbc.username}"/>
+	   <property name="password" value="${jdbc.password}"/>
+	   
+	   <property name="connectionTimeoutInMs" value="3000"/>
+	   <property name="idleConnectionTestPeriodInMinutes" value="${jdbc.idleConnectionTestPeriodInMinutes}"/>
+	   <property name="idleMaxAgeInMinutes" value="${jdbc.idleMaxAgeInMinutes}"/>
+	   <property name="maxConnectionsPerPartition" value="${jdbc.maxConnectionsPerPartition}"/>
+	   <property name="minConnectionsPerPartition" value="${jdbc.minConnectionsPerPartition}"/>
+	   <property name="partitionCount" value="${jdbc.partitionCount}"/>
+	   <property name="acquireIncrement" value="${jdbc.acquireIncrement}"/>
+	   <property name="statementsCacheSize" value="${jdbc.statementsCacheSize}"/>
+	   <property name="releaseHelperThreads" value="${jdbc.releaseHelperThreads}"/>
+	</bean>
+	 -->
+
+    <!-- 配置事务管理器，注意这里的dataSource和SqlSessionFactoryBean的dataSource要一致，不然事务就没有作用了 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+         
+   <!-- spring整合MyBatis  创建SqlSessionFactory，同时指定数据源 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    	<property name="configLocation" value="classpath:MyBatis-Configuration.xml" />
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations"  value="classpath*:com/dyyt/sqlMap/*.xml" />
+		<!-- <property name="typeAliasesPackage" value="com.dyyt.model" /> -->
+    </bean>
+    
+    <!-- 通过扫描的模式，扫描目录在com/hoo/mapper目录下，所有的mapper都继承SqlMapper接口的接口， 这样一个bean就可以了-->    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.dyyt.dao"/>
+    </bean>
+</beans> 

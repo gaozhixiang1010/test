@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyyt.dao.TAssetsDAO">
+	<!-- 根据条件查询固定资产 -->
+	<select id="queryAssetsPage" parameterType="com.dyyt.model.TAssets" resultType="com.dyyt.model.TAssets">
+		select a.assets_id,a.assets_type_id,a.assets_price,IF(LENGTH(a.assets_desc)>36,concat(left(a.assets_desc, 12),'..'),a.assets_desc) assets_desc,
+		a.create_time,a.pinpai,a.assets_name,t.type_name assets_type_name
+		from t_assets a,t_assets_type t
+		where a.assets_type_id = t.type_id 
+		<if test="assets_type_id != '' and assets_type_id != null">
+		   <![CDATA[and a.assets_type_id = ${assets_type_id} ]]>
+		</if>
+		order by a.assets_id desc
+	</select>
+	<select id="queryAssets" parameterType="com.dyyt.model.TAssets" resultType="com.dyyt.model.TAssets">
+		select a.assets_id,a.assets_type_id,a.assets_price,IF(LENGTH(a.assets_desc)>36,concat(left(a.assets_desc, 12),'..'),a.assets_desc) assets_desc,
+		a.create_time,a.pinpai,a.assets_name,t.type_name assets_type_name
+		from t_assets a,t_assets_type t
+		where a.assets_type_id = t.type_id 
+		<if test="assets_type_id != '' and assets_type_id != null">
+		   <![CDATA[and a.assets_type_id = ${assets_type_id} ]]>
+		</if>
+		order by a.assets_id desc
+	</select>
+	<!-- 新增固定资产 -->
+	<insert id="addAsstes" parameterType="com.dyyt.model.TAssets">
+		insert into t_assets (assets_type_id,assets_desc,assets_price,create_time,user_id,assets_name,pinpai)
+		values (#{assets_type_id},#{assets_desc},#{assets_price},now(),#{user_id},#{assets_name},#{pinpai})
+	</insert>
+	<!-- 通过ID获取固定资产信息 -->
+	<select id="getAssetsBean" parameterType="String" resultType="com.dyyt.model.TAssets">
+		select * from t_assets where assets_id = #{assets_id}
+	</select>
+	<!-- 修改固定资产 -->
+	<update id="updateAsstes" parameterType="com.dyyt.model.TAssets">
+		update t_assets set assets_type_id=#{assets_type_id},assets_desc=#{assets_desc},assets_price=#{assets_price},user_id=#{user_id},assets_name=#{assets_name} where assets_id=#{assets_id}
+	</update>
+	<!-- 根据ID删除固定资产信息 -->
+	<delete id="deleteAssets" parameterType="String">
+		DELETE FROM t_assets WHERE assets_id = #{assets_id}
+	</delete>
+</mapper>

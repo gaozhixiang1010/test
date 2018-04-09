@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyyt.dao.TForumDAO">
+	<select id="queryForumPage" parameterType="com.dyyt.model.TForum" resultType="com.dyyt.model.TForum">
+		SELECT f.*,u.user_name from t_forum f,t_user u where f.user_id = u.user_id
+	</select>
+	<select id="queryForum" resultType="com.dyyt.model.TForum">
+		SELECT f.*,u.user_name from t_forum f,t_user u where f.user_id = u.user_id
+	</select>
+	<delete id="deleteForum" parameterType="String">
+		DELETE FROM t_Forum WHERE forum_id = #{forum_id}
+	</delete>
+	<insert id="addForum" parameterType="com.dyyt.model.TForum">
+		insert into t_forum (user_id,title,content,create_date) values (#{user_id},#{title},#{content},now())
+	</insert>
+</mapper>

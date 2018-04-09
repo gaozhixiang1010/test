@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dyyt.dao.TStockDAO">
+	<!-- 根据条件查询固定资产库存 -->
+	<select id="queryStockPage" parameterType="com.dyyt.model.TStock" resultType="com.dyyt.model.TStock">
+		select in_stock.assets_num total_num,(in_stock.assets_num - out_stock.out_num) over_num,p.parent_name,in_stock.type_name assets_type_name,in_stock.assets_owner assets_owner,IF(in_stock.assets_owner=1,'市场推广部',IF(in_stock.assets_owner=2,'财务部',IF(in_stock.assets_owner=3,'人力行政部',IF(in_stock.assets_owner=4,'营销部',IF(in_stock.assets_owner=5,'办公室',IF(in_stock.assets_owner=6,'运营中心',IF(in_stock.assets_owner=7,'商务中心',IF(in_stock.assets_owner=8,'客服部',IF(in_stock.assets_owner=9,'工程部',IF(in_stock.assets_owner=10,'孵化器',IF(in_stock.assets_owner=11,'公开面积','咖啡厅'))))))))))) assets_owner_name,in_stock.parent_id parent_id,in_stock.assets_type_id assets_type_id from 
+		(select t.parent_id,a.assets_type_id,t.type_name,SUM(a.assets_num) assets_num,a.assets_owner from t_assets a,t_assets_type t where a.assets_type_id = t.type_id and a.assets_owner = #{assets_owner} GROUP BY assets_type_id) in_stock,
+		(select t.parent_id,t.type_id,t.type_name,IFNULL(SUM(a.assets_num),0) out_num,a.assets_owner from t_assets_type t LEFT JOIN t_outstock a on t.type_id = a.assets_type_id and a.assets_owner = #{assets_owner} GROUP BY t.type_id,a.assets_owner) out_stock,
+		t_assets_parent_type p
+		 where in_stock.assets_type_id = out_stock.type_id
+		   and p.parent_id = in_stock.parent_id
+		   <if test="parent_id != ''">
+		      <![CDATA[and in_stock.parent_id = ${parent_id} ]]>
+		   </if>
+		   <if test="assets_type_id != ''">
+		      <![CDATA[and in_stock.assets_type_id = ${assets_type_id} ]]>
+		   </if>
+		   ORDER BY parent_id 
+	</select>
+</mapper>
